@@ -1,0 +1,45 @@
+package Selenium.Webdriver.basictests;
+
+import java.sql.Driver;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class FirstTest {
+
+	public static void main(String[] args) {
+		
+		System.setProperty("webdriver.firefox.marionette","C://Users//Acchu//Desktop//Java eclipse IDE//DRIVERS//geckodriver.exe//");
+		
+		FirefoxDriver driver=new FirefoxDriver();
+		
+		driver.get("https://practicetestautomation.com/practice-test-login/");
+		
+		driver.findElement(By.name("username")).sendKeys("student");
+		
+		
+		driver.findElement(By.name("password")).sendKeys("Password123");
+		
+		driver.findElement(By.id("submit")).click();
+		
+		String exptitle="Logged In Successfully | Practice Test Automation";
+		
+		String acttitle= driver.getTitle();
+		
+		//Validation
+		
+		if(exptitle.equals(acttitle))
+			
+		{
+			System.out.println("Test is Passed");
+		}
+		else
+		{
+			System.out.println("Test is Failed");
+		}
+	
+		driver.close();
+		
+	}
+
+}
